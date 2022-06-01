@@ -9,6 +9,7 @@ public class ARCursor : MonoBehaviour
     public GameObject cursorChildbject;
     public GameObject objectToPlace;
     public ARRaycastManager raycastManager;
+    GameObject tempGameObject;
 
     public bool useCursor = true;
     // Start is called before the first frame update
@@ -29,10 +30,11 @@ public class ARCursor : MonoBehaviour
         {
             if (useCursor)
             {
-                GameObject.Instantiate(objectToPlace, transform.position, transform.rotation);
+                tempGameObject = GameObject.Instantiate(objectToPlace, transform.position, transform.rotation);
             }
             else
             {
+                tempGameObject.SetActive(false);
                 List<ARRaycastHit> hits = new List<ARRaycastHit>();
                 raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
                 if (hits.Count > 0 )
