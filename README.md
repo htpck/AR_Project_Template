@@ -23,4 +23,4 @@ This project template provides a foundational setup for creating augmented reali
 
 ## Installation
 
-1. **Clone the repository:**
+1. **Clone the repository.
